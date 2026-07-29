@@ -158,8 +158,12 @@ def count_tokens(input_ids):
     return len(input_ids)
 
 # Step 15 - build_training_arguments
-def build_training_arguments(output_dir='./sft_out', max_steps=5, learning_rate=2e-4):
+def build_training_arguments(output_dir="./sft_out", max_steps=5, learning_rate=2e-4):
     """Return featherweight TrainingArguments for the SFT run."""
+
+    import torch
+    from transformers import TrainingArguments
+
     use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
 
     return TrainingArguments(

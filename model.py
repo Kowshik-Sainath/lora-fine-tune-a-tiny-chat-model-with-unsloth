@@ -184,7 +184,7 @@ from datasets import Dataset
 
 def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=256):
     """Construct a trl SFTTrainer over dataset['text'] ready to .train()."""
-    trainer = SFTTrainer(
+    trainer =  SFTTrainer(
         model=model,
         tokenizer=tokenizer,
         train_dataset=dataset,
@@ -192,12 +192,16 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
         max_seq_length=max_seq_length,
         args=training_args,
         packing=False,
+        dataset_num_proc=1,
     )
 
     return trainer
 
-# Step 17 - run_sft_training (not yet solved)
-# TODO: implement
+# Step 17 - run_sft_training
+def run_sft_training(trainer):
+    """Run a few SFT steps and return the final training loss as a float."""
+    train_output = trainer.train()
+    return float(train_output.training_loss)
 
 # Step 18 - switch_to_inference_mode (not yet solved)
 # TODO: implement

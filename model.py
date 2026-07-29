@@ -96,8 +96,35 @@ def count_trainable_parameters(model):
 def trainable_fraction(trainable_count, total_count):
     return trainable_count / total_count
 
-# Step 9 - build_instruction_examples (not yet solved)
-# TODO: implement
+# Step 9 - build_instruction_examples
+def build_instruction_examples():
+    """Return a small list of {'instruction', 'response'} dicts for SFT."""
+    return [
+        {
+            "instruction": "What is the capital of Australia?",
+            "response": "The capital of Australia is Canberra."
+        },
+        {
+            "instruction": "Translate 'Good morning' into Spanish.",
+            "response": "Buenos días."
+        },
+        {
+            "instruction": "Summarize: 'Machine learning enables computers to learn from data without being explicitly programmed.'",
+            "response": "Machine learning allows computers to learn from data."
+        },
+        {
+            "instruction": "Write a Python function to check whether a number is even.",
+            "response": "def is_even(n):\n    return n % 2 == 0"
+        },
+        {
+            "instruction": "Determine the sentiment: 'The service was excellent and fast.'",
+            "response": "Positive"
+        },
+        {
+            "instruction": "Explain recursion in one sentence.",
+            "response": "Recursion is a technique where a function calls itself to solve smaller instances of a problem."
+        }
+    ]
 
 # Step 10 - format_instruction_example (not yet solved)
 # TODO: implement

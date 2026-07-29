@@ -192,7 +192,6 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
         max_seq_length=max_seq_length,
         args=training_args,
         packing=False,
-        dataset_num_proc=1,
     )
 
     return trainer
